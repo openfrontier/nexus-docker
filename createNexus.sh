@@ -5,10 +5,12 @@ NEXUS_VOLUME=${NEXUS_VOLUME:-nexus-volume}
 NEXUS_IMAGE_NAME=${NEXUS_IMAGE_NAME:-sonatype/nexus}
 
 #Create nexus volume.
-docker run \
---name ${NEXUS_VOLUME} \
-${NEXUS_IMAGE_NAME} \
-echo "Create nexus volume."
+if [ -z "$(docker ps -a | grep ${NEXUS_VOLUME})" ]; then
+    docker run \
+    --name ${NEXUS_VOLUME} \
+    ${NEXUS_IMAGE_NAME} \
+    echo "Create nexus volume."
+fi
 
 #Start nexus
 docker run \
