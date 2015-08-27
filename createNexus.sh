@@ -2,7 +2,7 @@
 set -e
 NEXUS_NAME=${NEXUS_NAME:-nexus}
 NEXUS_VOLUME=${NEXUS_VOLUME:-nexus-volume}
-NEXUS_IMAGE_NAME=${NEXUS_IMAGE_NAME:-sonatype/nexus}
+NEXUS_IMAGE_NAME=${NEXUS_IMAGE_NAME:-openfrontier/nexus}
 
 #Create nexus volume.
 if [ -z "$(docker ps -a | grep ${NEXUS_VOLUME})" ]; then
