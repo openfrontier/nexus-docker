@@ -14,7 +14,7 @@ ln -s ${P2_PLUGIN_PATH}/${P2_BRIDGE_PLUGIN} ${NEXUS_PLUGIN_PATH}/${P2_BRIDGE_PLU
 ln -s ${P2_PLUGIN_PATH}/${P2_REPO_PLUGIN}   ${NEXUS_PLUGIN_PATH}/${P2_REPO_PLUGIN}
 
 echo "Start up nexus."
-exec java \
+exec ${JAVA_HOME}/bin/java \
   -Dnexus-work=${SONATYPE_WORK} -Dnexus-webapp-context-path=${CONTEXT_PATH} \
   -Xms${MIN_HEAP} -Xmx${MAX_HEAP} \
   -cp 'conf/:lib/*' \
