@@ -1,8 +1,8 @@
-FROM sonatype/nexus:2.14.3-02
+FROM sonatype/nexus:2.14.4-03
 
 MAINTAINER zsx <thinkernel@gmail.com>
 
-ENV NEXUS_VERSION 2.14.3-02
+ENV NEXUS_VERSION 2.14.4-03
 ENV MAX_HEAP 2048m
 ENV MIN_HEAP 512m
 
