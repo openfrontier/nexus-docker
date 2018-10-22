@@ -11,15 +11,17 @@ RUN yum install -y \
   unzip \
   && yum clean all
 
-ENV DOWNLOAD_SITE https://repo1.maven.org/maven2/org/sonatype/nexus/plugins
+ENV DOWNLOAD_SITE https://repo.maven.apache.org/maven2/org/sonatype/nexus/plugins
 
-RUN curl -fSsL ${DOWNLOAD_SITE}/nexus-p2-repository-plugin/${NEXUS_VERSION}/nexus-p2-repository-plugin-${NEXUS_VERSION}-bundle.zip \
+RUN echo "Downloading: ${DOWNLOAD_SITE}/nexus-p2-repository-plugin/${NEXUS_VERSION}/nexus-p2-repository-plugin-${NEXUS_VERSION}-bundle.zip" && \
+    curl -fSsL ${DOWNLOAD_SITE}/nexus-p2-repository-plugin/${NEXUS_VERSION}/nexus-p2-repository-plugin-${NEXUS_VERSION}-bundle.zip \
          -o /opt/sonatype/nexus/nexus-p2-repository-plugin-${NEXUS_VERSION}-bundle.zip && \
     unzip -q     /opt/sonatype/nexus/nexus-p2-repository-plugin-${NEXUS_VERSION}-bundle.zip && \
     chmod -R 755 /opt/sonatype/nexus/nexus-p2-repository-plugin-${NEXUS_VERSION} && \
     rm /opt/sonatype/nexus/nexus-p2-repository-plugin-${NEXUS_VERSION}-bundle.zip
 
-RUN curl -fSsL ${DOWNLOAD_SITE}/nexus-p2-bridge-plugin/${NEXUS_VERSION}/nexus-p2-bridge-plugin-${NEXUS_VERSION}-bundle.zip \
+RUN echo "Downloading: ${DOWNLOAD_SITE}/nexus-p2-bridge-plugin/${NEXUS_VERSION}/nexus-p2-bridge-plugin-${NEXUS_VERSION}-bundle.zip" && \
+    curl -fSsL ${DOWNLOAD_SITE}/nexus-p2-bridge-plugin/${NEXUS_VERSION}/nexus-p2-bridge-plugin-${NEXUS_VERSION}-bundle.zip \
          -o /opt/sonatype/nexus/nexus-p2-bridge-plugin-${NEXUS_VERSION}-bundle.zip && \
     unzip -q     /opt/sonatype/nexus/nexus-p2-bridge-plugin-${NEXUS_VERSION}-bundle.zip && \
     chmod -R 755 /opt/sonatype/nexus/nexus-p2-bridge-plugin-${NEXUS_VERSION} && \
