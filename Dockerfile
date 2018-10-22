@@ -12,7 +12,7 @@ RUN yum install -y \
   unzip \
   && yum clean all
 
-ENV DOWNLOAD_SITE https://repo.maven.apache.org/maven2/org/sonatype/nexus/plugins
+ARG DOWNLOAD_SITE=https://repo.maven.apache.org/maven2/org/sonatype/nexus/plugins
 
 RUN echo "Downloading: ${DOWNLOAD_SITE}/nexus-p2-repository-plugin/${NEXUS_VERSION}/nexus-p2-repository-plugin-${NEXUS_VERSION}-bundle.zip" && \
     curl -fSsL ${DOWNLOAD_SITE}/nexus-p2-repository-plugin/${NEXUS_VERSION}/nexus-p2-repository-plugin-${NEXUS_VERSION}-bundle.zip \
