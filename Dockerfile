@@ -1,4 +1,4 @@
-FROM sonatype/nexus:2.14.10-01
+FROM sonatype/nexus:2.14.13-01
 
 MAINTAINER zsx <thinkernel@gmail.com>
 
